@@ -1,9 +1,15 @@
 # office-rooms-booking
 ## REST-API for booking coworking center rooms.
-### goal: to demonstrate the skills of developing a simple web application and skills in web technologies.
-### Wrote a .sql file that contains queries for building tables and entering dummy data in PostgreSQL database.
-### The psysopg2 driver is used to work with the database.
-### For routing endpoints I used a flask.
+### goal: 
+```
+to demonstrate the skills of developing a simple web application and skills in web technologies.
+```
+### conclusion:
+```
+Wrote a .sql file that contains queries for building tables and entering dummy data in PostgreSQL database.
+The psysopg2 driver is used to work with the database.
+For routing endpoints I used a flask.
+```
 
 ## API to get available rooms
 
