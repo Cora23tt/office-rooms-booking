@@ -5,7 +5,7 @@
 ### The psysopg2 driver is used to work with the database.
 ### For routing endpoints I used a flask.
 
-## Mavjud xonalarni olish uchun API
+## API to get available rooms
 
 ```
 GET /api/rooms
@@ -13,10 +13,10 @@ GET /api/rooms
 
 Parametrlar:
 
-- `search`: Xona nomi orqali qidirish
-- `type`: xona turi bo'yicha saralash (`focus`, `team`, `conference`)
-- `page`: sahifa tartib raqami
-- `page_size`: sahifadagi maksimum natijalar soni
+- `search`: Search by room name
+- `type`: sort by room type (`focus`, `team`, `conference`)
+- `page`: page sequence number
+- `page_size`: maximum number of results per page
 
 HTTP 200
 
@@ -50,7 +50,7 @@ HTTP 200
 
 ---
 
-## Xonani id orqali olish uchun API
+## API to get room by id
 
 ```
 GET /api/rooms/{id}
@@ -77,15 +77,15 @@ HTTP 404
 
 ---
 
-## Xonaning bo'sh vaqtlarini olish uchun API
+## API to get room availability
 
 ```
 GET /api/rooms/{id}/availability
 ```
 
-Parametrlar:
+Parameters:
 
-- `date`: sana (ko'rsatilmasa bugungi sana olinadi)
+- `date`: date (if not specified, today's date is taken)
 
 Response 200
 
@@ -104,7 +104,7 @@ Response 200
 
 ---
 
-## Xonani band qilish uchun API
+## API for booking a room
 
 ```
 POST /api/rooms/{id}/book
@@ -122,7 +122,7 @@ POST /api/rooms/{id}/book
 
 ---
 
-HTTP 201: Xona muvaffaqiyatli band qilinganda
+HTTP 201: When the room is successfully booked
 
 ```json
 {
@@ -130,7 +130,7 @@ HTTP 201: Xona muvaffaqiyatli band qilinganda
 }
 ```
 
-HTTP 410: Tanlangan vaqtda xona band bo'lganda
+HTTP 410: When the room is occupied at the selected time
 
 ```json
 {
